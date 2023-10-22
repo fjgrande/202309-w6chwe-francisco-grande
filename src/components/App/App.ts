@@ -2,11 +2,17 @@ import Component from "../Component/Component.js";
 
 class App extends Component {
   constructor(parentElement: Element) {
-    super(parentElement, "div", "container");
+    super(parentElement, "div", "main-container");
   }
 
-  populate(): void {
-    throw new Error("Mehod not implemented");
+  protected populate(): void {
+    this.element.innerHTML = `
+      <header class="main-header">
+        <img class="main-logo" src="./images/pokemon-logo.svg">
+      </header>
+      <main class="main"></main>
+    `;
   }
 }
+
 export default App;
