@@ -1,5 +1,5 @@
 abstract class Component {
-  private readonly element: Element;
+  protected readonly element: Element;
 
   constructor(
     private readonly parentElement: Element,
@@ -7,15 +7,16 @@ abstract class Component {
     className: string,
   ) {
     this.element = document.createElement(tagName);
-    this.parentElement = parentElement;
     this.element.className = className;
   }
 
   public render(): void {
     this.parentElement.appendChild(this.element);
+
+    this.populate();
   }
 
-  abstract populate(): void;
+  protected abstract populate(): void;
 }
 
 export default Component;
